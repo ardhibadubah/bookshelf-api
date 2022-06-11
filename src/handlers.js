@@ -112,10 +112,18 @@ const readAllBooksHandler = (req, h) => {
     });
   }
 
+  const results = books.map((book) => {
+    return {
+      id: book.id,
+      name: book.name,
+      publisher: book.publisher,
+    };
+  });
+
   return {
     status: 'success',
     data: {
-      books,
+      books: results,
     },
   };
 };
